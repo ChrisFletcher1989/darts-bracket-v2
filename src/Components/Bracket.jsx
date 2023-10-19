@@ -16,3 +16,4 @@ function Bracket (){
   </div>
     )
 }
+export default Bracket

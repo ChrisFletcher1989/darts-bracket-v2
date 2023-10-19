@@ -1,10 +1,11 @@
 import React, { useRef, useEffect } from 'react'
 import '../App.css'
-import '../App'
 
-function intro (){
+function Intro (){
     return (
-        <nav className="zone black sticky banner">
-    Darts Tournament Bracket Creator  </nav>
+        <div className="zone black sticky banner">
+    <p>Darts Tournament Bracket Creator  </p>
+    </div>
     )
 }
+export default Intro

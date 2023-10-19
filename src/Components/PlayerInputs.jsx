@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import '../App.css'
 import '../App'
 
-function playerInputs (){
+function PlayerInputs (){
     return (
         <div className="players">
         
@@ -16,3 +16,4 @@ function playerInputs (){
           </div>
     )
 }
+export default PlayerInputs

@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Players from './Components/Players.jsx'
+import Intro from './Components/Intro.jsx'
+import PlayerInputs from './Components/PlayerInputs'
+import PlayerNumber from './Components/PlayerNumber'
+import Bracket from './Components/Bracket.jsx'
 
 function App() {
-  const [playerNumbers, setPlayerNumbers]=useState('')
-  const [playerNames, setPlayerNames]=useState([]);
-
   return ( 
-      <div>
-        <Players/>
-        </div>
-  )
+    <div>
+    <Intro />
+    <PlayerNumber />
+    <PlayerInputs />
+    <Bracket />
+  </div>
+  ) 
 }
 
 export default App
