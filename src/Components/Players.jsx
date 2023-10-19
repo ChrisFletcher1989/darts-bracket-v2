@@ -1,13 +1,12 @@
 
 import { useState } from 'react'
 import React, { useRef, useEffect } from 'react'
-import reactLogo from '../assets/react.svg'
-import viteLogo from '/vite.svg'
 import '../App.css'
 import '../App'
 
+
 ////this component adds the players to the DOM
-function Players() {
+const Players= () => {
 let player= document.getElementsByClassName("playerLabel")
 let box= document.getElementsByClassName("box")
 let option= document.getElementsByClassName("option")
@@ -17,7 +16,7 @@ let printPDF=document.getElementById("generatePDF")
 let inputElements = document.querySelectorAll(".newPlayers"); 
 let addPlayers = () =>{
     let a = numberOfPlayers.value    
-    
+
         console.log(a)
         playerNames.innerHTML = "";
         first.innerHTML = "";
@@ -33,7 +32,6 @@ let addPlayers = () =>{
     newPlayer.setAttribute("type", "text"); 
     newPlayer.setAttribute("placeholder", "Player " + i); 
     newPlayer.setAttribute("class", "newPlayers"); 
-
     playerNames.appendChild(newPlayer);
 
     let bracket = document.createElement("div");
@@ -134,62 +132,18 @@ let addNames = () => {
   function printFunction(){
     window.print()
   }
-  
     numberOfPlayers.addEventListener("click", addPlayers);
     randomise.addEventListener("click", addNames);
     printPDF.addEventListener("click", printFunction);
 
-
-
   return (
-    <div>
-
-    <nav className="zone black sticky banner">
-    Darts Tournament Bracket Creator  </nav>
-        <div className="players">
-          <span className= "info">Please choose the number of player names then add their names below</span>
-          <fieldset className="noMargin">
-            <div className="dropdown">
-              <button className="dropbtn">Number of competitors</button>
-              <div className="dropdown-content">
-                <select id="competitors" name="competitors" className="dropbtn">
-                  <option value="" disabled selected>Choose</option>
-                  <option value="4" className="option">4</option>
-                  <option value="8" className="option">8</option>
-                  <option value="16" className="option">16</option>
-                  <option value="32" className="option">32</option>
-    
-                </select>
-              </div>
-            </div>
-          </fieldset>
-          <fieldset className= "playerNames" id="playerNames">
-            <br/>
-          </fieldset>
-          <button ID="randomise" className="randomise">Randomise</button>
-          <button ID="generatePDF" className="randomise">Print PDF</button>
-          <button ID="view" className="randomise"><a href="horizontal.html">Change to horizontal view</a></button><br/>
-    
-    
-          <div className="wrapper">
-    
-        <div id="first" className="zone gray first"></div>
-        <div id="second" className="zone gray round"></div>
-        <div id="third" className="zone gray round"></div>
-        <div id="fourth" className="zone gray round"></div>
-        <div id="fifth" className="zone gray round"></div>
-        <div id="sixth" className="zone gray round"></div>
-    
-      </div>
-    
-      <script type="text/javascript" src="./bracket.js"></script>
-    
-    </div>
-    </div>
+    blank
+       
 ) 
 }
 
 
 
-export default Players
+export default Players;
+
 
