@@ -1,19 +1,77 @@
-import React, { useRef, useEffect } from 'react'
+
+import React, { useRef, useEffect, useState} from 'react'
+import PlayerNumber from './PlayerNumber'
 import '../App.css'
 import '../App'
+import Bracket from './Bracket'
+let randomNames=[];
+function PlayerInputs ({ number }){
+    let playerNames=[]
+    let names=[]
+    let a= ""
+    let [randomClicked, setRandomClicked]= useState(false)
+    const [competitor, setCompetitor]=useState()
+    const handleCompetitor=(event)=>{
+        a=(event.target.value)
+    }
+    const handleCompetitorClick=()=>{
+        if(a!=""){names.push(a)}
+    }
 
-function PlayerInputs (){
+  const [randomizedNames, setRandomizedNames] = useState([]);
+    const [randomize, setRandomize]=useState([])
+    const handleRandomize = () => {
+        names.push(a)
+    console.log("NAMES ARE", names)
+    while(names.length>0){
+        let i = Math.floor(Math.random() * names.length)
+            randomNames.push(names[i])
+            names.splice(i, 1)
+            i=0;
+            setRandomClicked=(true)
+            console.log("after click", randomClicked)
+            }
+    }
+  
+      for (let i = 1; i <= number; i++) {
+        playerNames.push(
+          <input
+            type="text"
+            placeholder={`Player ${i}`}
+            className="newPlayers"
+            key={i}
+            onChange={handleCompetitor}
+            onClick={handleCompetitorClick}
+          />
+        );
+      }
+
     return (
         <div className="players">
-        
-          <fieldset className= "playerNames" id="playerNames">
+          <fieldset className= "playerNames" id="playerNames">{playerNames}
             <br/>
           </fieldset>
-          <button ID="randomise" className="randomise">Randomise</button>
+          <button ID="randomise" className="randomise" onClick={handleRandomize}>Randomise</button>
           <button ID="generatePDF" className="randomise">Print PDF</button>
           <button ID="view" className="randomise"><a href="horizontal.html">Change to horizontal view</a></button><br/>
-    
+          <div className="players">
+        </div>
+        <Bracket randomNames={randomize} randomClicked={randomClicked}/>
+
           </div>
     )
+
+    
+
 }
 export default PlayerInputs
+
+
+
+
+
+
+
+
+
+

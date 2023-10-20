@@ -1,25 +1,21 @@
 import React, { useState } from 'react';
 import '../App.css';
+import PlayerInputs from './PlayerInputs';
 
 function PlayerNumber() {
-  const [number, setNumber] = useState(); 
-  const playerNames = [];
-
+    let randomClicked=false
+    const [number, setNumber] = useState(4);
   const handleNumberChange = (event) => {
-    setNumber(parseInt(event.target.value, 10));
+    setNumber(event.target.value);
+    randomClicked=yes;
   };
+const [nameChange, setNameChange] = useState()
+const handleNameChange =(event)=> {
+    const inputValue = event.target.value;
+    playerArray.push(inputValue);
+}
 
-  for (let i = 1; i <= number; i++) {
-    playerNames.push(
-      <input
-        type="text"
-        placeholder={`Player ${i}`}
-        className="newPlayers"
-        key={i}
-      />
-    );
-  }
-
+  
     return (
         <div className="players">
           <span className="info">
@@ -44,8 +40,10 @@ function PlayerNumber() {
               </div>
             </div>
           </fieldset>
-          <div className="playerNames">{playerNames}</div>
-        </div>
+        
+          <PlayerInputs number={number} randomClicked={randomClicked}/>
+                  </div>
+
       );
     }
     

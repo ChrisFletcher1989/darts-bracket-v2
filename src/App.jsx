@@ -8,9 +8,9 @@ function App() {
   return ( 
     <div>
     <Intro />
-    <PlayerNumber />
-    <PlayerInputs />
-    <Bracket />
+    <PlayerNumber/>
+    {/* <PlayerInputs /> */}
+    {/* <Bracket /> */}
   </div>
   ) 
 }

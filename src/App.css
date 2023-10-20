@@ -139,7 +139,6 @@ a {
 }
 .zone {
   
-  cursor: url(./images/dart2.png), auto;
   font-size:2em;
   border:1px solid #bbb;
   transition: all 0.3s linear;

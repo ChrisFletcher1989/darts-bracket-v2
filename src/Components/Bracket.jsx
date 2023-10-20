@@ -2,7 +2,8 @@ import React, { useRef, useEffect } from 'react'
 import '../App.css'
 import '../App'
 
-function Bracket (){
+function Bracket ({randomNames, randomClicked}){
+   console.log("next component", randomClicked, randomNames)
     return (
         <div className="players">
         <div className="wrapper">
