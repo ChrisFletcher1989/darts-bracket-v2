@@ -3,11 +3,13 @@ import '../App.css'
 import '../App'
 
 function Bracket ({randomNames, randomClicked}){
-   console.log("next component", randomClicked, randomNames)
+    useEffect(() =>{
+console.log("EFFECT", randomNames)
+    }, [randomClicked])
     return (
         <div className="players">
         <div className="wrapper">
-       <div id="first" className="zone gray first"></div>
+       <div id="first" className="zone gray first">{randomNames}</div>
        <div id="second" className="zone gray round"></div>
        <div id="third" className="zone gray round"></div>
        <div id="fourth" className="zone gray round"></div>

@@ -22,15 +22,15 @@ function PlayerInputs ({ number }){
     const [randomize, setRandomize]=useState([])
     const handleRandomize = () => {
         names.push(a)
-    console.log("NAMES ARE", names)
+    console.log("NAMES ARE", names, randomClicked)
     while(names.length>0){
         let i = Math.floor(Math.random() * names.length)
             randomNames.push(names[i])
             names.splice(i, 1)
             i=0;
-            setRandomClicked=(true)
-            console.log("after click", randomClicked)
             }
+            setRandomClicked(true)
+
     }
   
       for (let i = 1; i <= number; i++) {
@@ -56,8 +56,7 @@ function PlayerInputs ({ number }){
           <button ID="view" className="randomise"><a href="horizontal.html">Change to horizontal view</a></button><br/>
           <div className="players">
         </div>
-        <Bracket randomNames={randomize} randomClicked={randomClicked}/>
-
+        <Bracket randomNames={randomNames} randomClicked={randomClicked} />
           </div>
     )
 
