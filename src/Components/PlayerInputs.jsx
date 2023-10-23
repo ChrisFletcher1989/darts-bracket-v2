@@ -24,7 +24,6 @@ function PlayerInputs ({ number }){
       if (a.toLowerCase().includes("seed")){
             randomNames[i]=a
             randomNames[i+1]="REPLACE"
-            console.log("randomNames is ", randomNames, "Names is ", names)
             i+=2
       }
         else if(a!="" && a!=names[names.length-1]){names.push(a)}
@@ -35,7 +34,6 @@ function PlayerInputs ({ number }){
     const [randomize, setRandomize]=useState([])
     const handleRandomize = () => {
       if(a!="" && a!=names[names.length-1]){names.push(a)}
-      console.log("NAMES ARE", names, randomClicked)
     while(names.length>0){
         let i = Math.floor(Math.random() * names.length)
         for (let j=0; j<randomNames.length; j++){
@@ -50,9 +48,7 @@ function PlayerInputs ({ number }){
             i=0;
             }
             if(randomNames[randomNames.length-1]===undefined){
-              console.log("LAST IS UNDEFINED", randomNames)
               randomNames.pop()
-              console.log("how now? ", randomNames)
             }
             setRandomClicked(true)
     }

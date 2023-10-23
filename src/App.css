@@ -88,6 +88,12 @@ a {
 
 
 }
+.playerNames{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
     .wrapper, .box, .playerName {
         color: red ;
         font-size: 0.525em;
