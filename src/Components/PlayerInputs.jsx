@@ -9,28 +9,52 @@ function PlayerInputs ({ number }){
     let playerNames=[]
     let names=[]
     let a= ""
+    let i=0
     let [randomClicked, setRandomClicked]= useState(false)
     const [competitor, setCompetitor]=useState()
     const handleCompetitor=(event)=>{
         a=(event.target.value)
     }
-    const handleCompetitorClick=()=>{
-        if(a!=""){names.push(a)}
+     const handleKeyPress=(event)=>{
+      if (event.key==='Enter' || event.key==='Tab'){
+        handleCompetitorClick()
+      }
     }
+    const handleCompetitorClick=()=>{
+      if (a.toLowerCase().includes("seed")){
+            randomNames[i]=a
+            randomNames[i+1]="REPLACE"
+            console.log("randomNames is ", randomNames, "Names is ", names)
+            i+=2
+      }
+        else if(a!="" && a!=names[names.length-1]){names.push(a)}
+    }
+   
 
   const [randomizedNames, setRandomizedNames] = useState([]);
     const [randomize, setRandomize]=useState([])
     const handleRandomize = () => {
-        names.push(a)
-    console.log("NAMES ARE", names, randomClicked)
+      if(a!="" && a!=names[names.length-1]){names.push(a)}
+      console.log("NAMES ARE", names, randomClicked)
     while(names.length>0){
         let i = Math.floor(Math.random() * names.length)
+        for (let j=0; j<randomNames.length; j++){
+          if (randomNames[j]==="REPLACE"){
+            randomNames[j]=names[i]
+            names.splice(i, 1);
+            i=0
+          }
+        }
             randomNames.push(names[i])
             names.splice(i, 1)
             i=0;
             }
+            if(randomNames[randomNames.length-1]===undefined){
+              console.log("LAST IS UNDEFINED", randomNames)
+              randomNames.pop()
+              console.log("how now? ", randomNames)
+            }
             setRandomClicked(true)
-
     }
   
       for (let i = 1; i <= number; i++) {
@@ -38,10 +62,11 @@ function PlayerInputs ({ number }){
           <input
             type="text"
             placeholder={`Player ${i}`}
-            className="newPlayers"
+            className="newPlayers p-2 mx-2.5 my-2.5"
             key={i}
             onChange={handleCompetitor}
             onClick={handleCompetitorClick}
+            onKeyDown={handleKeyPress}
           />
         );
       }
@@ -51,9 +76,10 @@ function PlayerInputs ({ number }){
           <fieldset className= "playerNames" id="playerNames">{playerNames}
             <br/>
           </fieldset>
-          <button ID="randomise" className="randomise" onClick={handleRandomize}>Randomise</button>
-          <button ID="generatePDF" className="randomise">Print PDF</button>
-          <button ID="view" className="randomise"><a href="horizontal.html">Change to horizontal view</a></button><br/>
+          <button ID="randomise px-2" className="randomise" onClick={handleRandomize}>Randomise</button>
+          <button ID="generatePDF" className="randomise" onClick={ function printFunction(){
+    window.print()
+  }}>Print PDF</button>
           <div className="players">
         </div>
         <Bracket randomNames={randomNames} randomClicked={randomClicked} /> </div>

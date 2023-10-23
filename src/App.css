@@ -1,13 +1,28 @@
+.body {
+  background-color: black;
+  min-width: 100%;
+  overflow: auto;
+
+}
 div {
     font-family: Helvetica, sans-serif;
 }
+.newPlayers {
+  font-size: 0.4em;
+}
+
 .wrapper {
-    min-width: 100%;
     font-size:2em;
     margin: 0px;
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Center horizontally */
+    /* justify-content: center;  */
+}
+@media (min-width: 555px) {
+ .wrapper {
+  justify-content: center; 
+
+  }
 }
 a {
     color: red;
@@ -16,12 +31,12 @@ a {
 .banner{
     color: #00FF00;
     text-align: center;
+    margin: 0;
+    padding: 0
     
 }
-
 .players{
     margin:0px;
-    margin-top:90px;
     margin-bottom:40px;
     padding-left: 0px;
     padding-right: 0px;
@@ -32,14 +47,8 @@ a {
     color: red;
     
 }
-.info {
-    font-size: 0.5em;
-    min-width: 100vh;
-    text-align: center;
-    width: 100%;
-    color:#E3292E;
-    margin-top: 0px;
-}
+
+
 .playerLabel{
     font-size: 0.8em;
     margin-right: 10px;
@@ -51,7 +60,8 @@ a {
 }
 .randomise {
   height: 40px;
-  width: auto;
+  width: 100px;
+  margin: 10px;
     border-radius: 20px;
     background-color: #abedcd;
     font-size: 0.5em;
@@ -66,21 +76,25 @@ a {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin-bottom: 100px;
+
 
 }
 .round {
     display: flex;
     justify-content: space-around;
- flex-direction: column;
+    flex-direction: column;
+    margin-bottom: 100px;
+
 
 }
     .wrapper, .box, .playerName {
         color: red ;
-        font-size: 0.45em;
+        font-size: 0.525em;
     }
     .wrapper, .box2, .playerName {
         color: red ;
-        font-size: 0.5em;
+        font-size: 0.525em;
     }
 
 .box {
@@ -92,21 +106,19 @@ a {
     border-radius: 40px;
     border-bottom-right-radius:0px;
     margin-bottom: 0px;
+
 }
 .box:nth-child(even) {
     background: linear-gradient(#E3292E 0%, black 20%, black 80%, #E3292E 100%);
     padding:6px;
-  height: 40px;
+    height: 40px;
     width: 160px;
     margin: 8px;
     border-radius: 40px;
     border-top-right-radius:0px;
     margin-top: 0px;
 
-
 }
-
-
 .sticky {
     position:fixed;
     width:100%;
@@ -136,15 +148,17 @@ a {
 .dropbtn {
     background-color: #04AA6D;
     color: white;
-    padding: 16px;
+    padding: 19px;
     font-size: 16px;
     border: none;
   }
   
   .dropdown {
     display: block;
-    margin: 0px;
-    padding: 0px;
+    margin: 16px;
+    margin-top: 0px;
+    padding: 16px;
+
   }
   
   /* Dropdown Content (Hidden by Default) */

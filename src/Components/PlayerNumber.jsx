@@ -14,12 +14,16 @@ const handleNameChange =(event)=> {
 }
     return (
         <div className="players">
-          <div className="info">
-            Please choose the number of player names then add their names below
+          <div className="info text-sm">
+            <span className="text-base	">Please choose the number of player names then add their names below.</span><br/>
+            
+            <span className="text-lg text-green-500">Need seeded players?<br/></span>
+            To add seeded players, type SEED before their name.<br/>
+            What is seeded? Seeded players never face each other in round 1.
           </div>
-          <fieldset className="noMargin">
+          <fieldset className="uppercase">
             <div className="dropdown">
-              <button className="dropbtn">Number of competitors</button>
+              <button className="dropbtn upperca">Number of competitors</button>
               <div className="dropdown-content">
                 <select
                   id="competitors"
