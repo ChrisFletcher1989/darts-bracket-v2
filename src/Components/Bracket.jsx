@@ -88,7 +88,6 @@ function Bracket({ randomNames, randomClicked }) {
   }, [randomClicked]);
 
   return (
-    <div className="players">
       <div className="wrapper">
         <div id="first" className="zone gray first">
           {playerElements}
@@ -101,7 +100,6 @@ function Bracket({ randomNames, randomClicked }) {
         <div id="fifth" className="zone gray round">{fifth}</div>
         <div id="sixth" className="zone gray round">{sixth}</div>
       </div>
-    </div>
   );
 }
 

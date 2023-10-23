@@ -47,7 +47,7 @@ function PlayerInputs ({ number }){
       }
 
     return (
-        <div className="players">
+      <div>
           <fieldset className= "playerNames" id="playerNames">{playerNames}
             <br/>
           </fieldset>
@@ -56,8 +56,7 @@ function PlayerInputs ({ number }){
           <button ID="view" className="randomise"><a href="horizontal.html">Change to horizontal view</a></button><br/>
           <div className="players">
         </div>
-        <Bracket randomNames={randomNames} randomClicked={randomClicked} />
-          </div>
+        <Bracket randomNames={randomNames} randomClicked={randomClicked} /> </div>
     )
 
     

@@ -1,198 +1,172 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
 div {
-  font-family: Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 .wrapper {
-  width: fit-content;
-  min-width: 100%;
-  font-size:2em;
-  margin: 0px;
-  position: absolute;
-
-}
-.banner{
-  color: #00FF00;
-  text-align: center;
+    min-width: 100%;
+    font-size:2em;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center horizontally */
 }
 a {
-  color: red;
+    color: red;
 }
+
+.banner{
+    color: #00FF00;
+    text-align: center;
+    
+}
+
 .players{
-  margin:0px;
-  margin-top:40px;
-  padding-left: 0px;
-  padding-right: 0px;
-  background-color: black;
-  text-align: center;
-  width: 100%;
-  font-size: 2em;
+    margin:0px;
+    margin-top:90px;
+    margin-bottom:40px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+    width: 100%;
+    background-color: black;
+    font-size: 2em;
+    color: red;
+    
+}
+.info {
+    font-size: 0.5em;
+    min-width: 100vh;
+    text-align: center;
+    width: 100%;
+    color:#E3292E;
+    margin-top: 0px;
 }
 .playerLabel{
-  font-size: 0.8em;
-  margin-right: 10px;
+    font-size: 0.8em;
+    margin-right: 10px;
 }
 .playerLabel1{
-  font-size: 0.8em;
-  margin-right: 10px;
+    font-size: 0.8em;
+    margin-right: 10px;
+
 }
 .randomise {
-  border-radius: 20px;
-  background-color: #abedcd;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  height: 40px;
+  width: auto;
+    border-radius: 20px;
+    background-color: #abedcd;
+    font-size: 0.5em;
+    
 
 }
 .randomise:hover {
-  background-color: #4668ff;
+    background-color: #4668ff;
 
 }
 .first {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
 }
 .round {
-  display: flex;
-  justify-content: space-around;
+    display: flex;
+    justify-content: space-around;
+ flex-direction: column;
 
 }
-  .wrapper, .box, .playerName {
-      color: red ;
-      font-size: 0.55em;
-  }
-  .wrapper, .box2, .playerName {
-      color: red ;
-      font-size: 0.55em;
-  }
+    .wrapper, .box, .playerName {
+        color: red ;
+        font-size: 0.45em;
+    }
+    .wrapper, .box2, .playerName {
+        color: red ;
+        font-size: 0.5em;
+    }
 
 .box {
-  background: linear-gradient(#309F6A 0%, white 20%, white 80%,#309F6A 100%);
-  padding:6px;
-  height: 30x;
-  width: 140px;
-  margin: 8px;
-  margin-right: 0px;
-  border-radius: 25px;
-  border-bottom-right-radius:0px;
-
+    background: linear-gradient(#309F6A 0%, white 20%, white 80%,#309F6A 100%);
+    padding:6px;
+    height: 40px;
+    width: 160px;
+    margin: 8px;
+    border-radius: 40px;
+    border-bottom-right-radius:0px;
+    margin-bottom: 0px;
 }
 .box:nth-child(even) {
-  background: linear-gradient(#E3292E 0%, black 20%, black 80%, #E3292E 100%);
-  padding:6px;
-  height: 30x;
-  width: 140px;
-  margin: 8px;
-  margin-left: 0px;
-  border-radius: 40px;
-  border-bottom-left-radius:0px;
+    background: linear-gradient(#E3292E 0%, black 20%, black 80%, #E3292E 100%);
+    padding:6px;
+  height: 40px;
+    width: 160px;
+    margin: 8px;
+    border-radius: 40px;
+    border-top-right-radius:0px;
+    margin-top: 0px;
+
 
 }
 
 
 .sticky {
-  position:fixed;
-  top:0;
-  width:100%;
+    position:fixed;
+    width:100%;
 }
 .zone {
-  
-  font-size:2em;
-  border:1px solid #bbb;
-  transition: all 0.3s linear;
+    
+    cursor: url(./images/dart2.png), auto;
+    font-size:2em;
+    border:1px solid #bbb;
+    transition: all 0.3s linear;
 }
 
 .zone:hover {
-  -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
-  -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
-  -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
-  box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
 }
 
 .black{
-  background: black;
+    background: black;
 }
 .gray {
-  background: gray;
+    background: gray;
 }
 /* Dropdown Button */
 .dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-.dropdown {
-  display: block;
-  margin: 0px;
-  padding: 0px;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  background-color: #f1f1f1;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  margin:0px
-}
-.option {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.dropdown:hover .dropdown-content {display: inline-block;
-  color: black;
-  padding: 0px 0px;
-  text-decoration: none;
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }
+  
+  .dropdown {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    margin:0px
+  }
+  .option {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .dropdown:hover .dropdown-content {display: inline-block;
+    color: black;
+    padding: 0px 0px;
+    text-decoration: none;
 margin: 0px, 0px;
 }
-
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}

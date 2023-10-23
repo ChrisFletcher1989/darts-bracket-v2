@@ -3,24 +3,20 @@ import '../App.css';
 import PlayerInputs from './PlayerInputs';
 
 function PlayerNumber() {
-    let randomClicked=false
     const [number, setNumber] = useState(4);
   const handleNumberChange = (event) => {
     setNumber(event.target.value);
-    randomClicked=yes;
   };
 const [nameChange, setNameChange] = useState()
 const handleNameChange =(event)=> {
     const inputValue = event.target.value;
     playerArray.push(inputValue);
 }
-
-  
     return (
         <div className="players">
-          <span className="info">
+          <div className="info">
             Please choose the number of player names then add their names below
-          </span>
+          </div>
           <fieldset className="noMargin">
             <div className="dropdown">
               <button className="dropbtn">Number of competitors</button>
@@ -41,7 +37,7 @@ const handleNameChange =(event)=> {
             </div>
           </fieldset>
         
-          <PlayerInputs number={number} randomClicked={randomClicked}/>
+          <PlayerInputs number={number}/>
                   </div>
 
       );

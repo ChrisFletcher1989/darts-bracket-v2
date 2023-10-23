@@ -6,8 +6,9 @@ import Bracket from './Components/Bracket.jsx'
 
 function App() {
   return ( 
-    <div>
+    <div className='body'>
     <Intro />
+    <br />
     <PlayerNumber/>
     {/* <PlayerInputs /> */}
     {/* <Bracket /> */}
