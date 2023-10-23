@@ -94,14 +94,20 @@ a {
   align-items: center;
   justify-content: center;
 }
+
     .wrapper, .box, .playerName {
-        color: red ;
+        color: red;
         font-size: 0.525em;
     }
     .wrapper, .box2, .playerName {
         color: red ;
         font-size: 0.525em;
     }
+    @media (max-width: 555px){ .wrapper, .box, .playerName {
+        color: red ;
+        font-size: 0.45em
+    }
+}
 
 .box {
     background: linear-gradient(#309F6A 0%, white 20%, white 80%,#309F6A 100%);
