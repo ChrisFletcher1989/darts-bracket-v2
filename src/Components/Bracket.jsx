@@ -22,6 +22,8 @@ function Bracket({ randomNames, randomClicked }) {
     let updatedSixth=[];
     let info=[];
     let length = randomNames.length;
+
+    //MOVE PLAYERS TO NEXT ROUND//
     const handleBoxClick = (event) => {
         if (clickedArray.length === 0) {
           clickedArray.push(event.target.textContent);
@@ -30,7 +32,7 @@ function Bracket({ randomNames, randomClicked }) {
             clickedArray.pop();
         }
       }
-    
+    //CREATE PLAYERS//
     if (length > 0) {
       for (let i = 0; i < length; i++) {
         updatedPlayerElements.push(
@@ -39,8 +41,6 @@ function Bracket({ randomNames, randomClicked }) {
           </div>)  
       }
     }
-
-
     length = length / 2;
     if (length >= 1) {
       for (let i = 1; i <= length; i++) {
@@ -104,6 +104,7 @@ function Bracket({ randomNames, randomClicked }) {
   
   , [randomClicked]);
 
+  //THE HTML//
   return (
     <div>
     {showInfo && (

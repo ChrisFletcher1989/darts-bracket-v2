@@ -12,9 +12,12 @@ function PlayerInputs ({ number }){
     let i=0
     let [randomClicked, setRandomClicked]= useState(false)
     const [competitor, setCompetitor]=useState()
+
+    //WHEN USER TYPES//
     const handleCompetitor=(event)=>{
         a=(event.target.value)
     }
+    //ADD TO ARRAY WHEN USER FINISHES TYPING
      const handleKeyPress=(event)=>{
       if (event.key==='Enter' || event.key==='Tab'){
         handleCompetitorClick()
@@ -29,7 +32,7 @@ function PlayerInputs ({ number }){
         else if(a!="" && a!=names[names.length-1]){names.push(a)}
     }
    
-
+//WHEN "randomize" IS PRESSED//
   const [randomizedNames, setRandomizedNames] = useState([]);
     const [randomize, setRandomize]=useState([])
     const handleRandomize = () => {
@@ -72,8 +75,8 @@ function PlayerInputs ({ number }){
           <fieldset className= "playerNames" id="playerNames">{playerNames}
             <br/>
           </fieldset>
-          <button ID="randomise px-2" className="randomise" onClick={handleRandomize}>Randomise</button>
-          <button ID="generatePDF" className="randomise" onClick={ function printFunction(){
+          <button id="randomise px-2" className="randomise" onClick={handleRandomize}>Randomise</button>
+          <button id="generatePDF" className="randomise" onClick={ function printFunction(){
     window.print()
   }}>Print PDF</button>
           <div className="players">
@@ -85,13 +88,3 @@ function PlayerInputs ({ number }){
 
 }
 export default PlayerInputs
-
-
-
-
-
-
-
-
-
-

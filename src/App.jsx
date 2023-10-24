@@ -1,8 +1,6 @@
-import './App.css'
-import Intro from './Components/Intro.jsx'
-import PlayerInputs from './Components/PlayerInputs'
-import PlayerNumber from './Components/PlayerNumber'
-import Bracket from './Components/Bracket.jsx'
+import './App.css';
+import Intro from './Components/Intro.jsx';
+import PlayerNumber from './Components/PlayerNumber';
 
 function App() {
   return ( 
@@ -10,8 +8,6 @@ function App() {
     <Intro />
     <br />
     <PlayerNumber/>
-    {/* <PlayerInputs /> */}
-    {/* <Bracket /> */}
   </div>
   ) 
 }
