@@ -4,7 +4,7 @@ import '../App.css'
 function Intro (){
     return (
     <div>
-        <div className="zone black sticky banner ">
+        <div className="zone black sticky banner">
     <p>Darts Tournament Bracket Creator  <br /></p>
     </div>
    

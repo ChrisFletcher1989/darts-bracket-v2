@@ -5,6 +5,7 @@ import '../App.css'
 import '../App'
 import Bracket from './Bracket'
 let randomNames=[];
+let seededNames=[]
 function PlayerInputs ({ number }){
     let playerNames=[]
     let names=[]
@@ -25,18 +26,46 @@ function PlayerInputs ({ number }){
     }
     const handleCompetitorClick=()=>{
       if (a.toLowerCase().includes("seed")){
-            randomNames[i]=a
-            randomNames[i+1]="REPLACE"
-            i+=2
+        seededNames.push(a)
       }
         else if(a!="" && a!=names[names.length-1]){names.push(a)}
     }
-   
+    let seeds = (seededNames, names) => {
+      let totalNames=names.length+seededNames.length
+      let positions=[0, totalNames-1]
+      if (seededNames.length==2){
+      for (let i=0; i<totalNames; i++){
+        randomNames.push("REPLACE")
+      }
+      randomNames[0]=seededNames[0];
+      randomNames[randomNames.length-1]=seededNames[1];
+      }
+      if (seededNames.length>2){
+
+         let interval=100/seededNames.length
+         let end =100
+         for (let i = 0; i < seededNames.length / 2-1; i++) {
+          positions.push(Math.floor((totalNames/100) * interval));
+          positions.push(Math.floor((totalNames/100) * (end - interval-1)));
+          interval+=interval 
+        }
+for (let i=0; i<totalNames; i++){
+  randomNames.push("REPLACE")
+}
+  for (let j=0; j<seededNames.length; j++){
+    randomNames[positions[j]]=seededNames[j];
+  }
+      }
+    };
 //WHEN "randomize" IS PRESSED//
   const [randomizedNames, setRandomizedNames] = useState([]);
     const [randomize, setRandomize]=useState([])
     const handleRandomize = () => {
+     
       if(a!="" && a!=names[names.length-1]){names.push(a)}
+      if (seededNames.length!=0){
+        seeds(seededNames, names)
+      }
     while(names.length>0){
         let i = Math.floor(Math.random() * names.length)
         for (let j=0; j<randomNames.length; j++){
@@ -54,6 +83,7 @@ function PlayerInputs ({ number }){
               randomNames.pop()
             }
             setRandomClicked(true)
+            
     }
   
       for (let i = 1; i <= number; i++) {
