@@ -97,11 +97,11 @@ a {
 
     .wrapper, .box, .playerName {
         color: red;
-        font-size: 0.525em;
+        font-size: 0.51em;
     }
     .wrapper, .box2, .playerName {
         color: red ;
-        font-size: 0.525em;
+        font-size: 0.51em;
     }
     @media (max-width: 555px){ .wrapper, .box, .playerName {
         color: red ;
