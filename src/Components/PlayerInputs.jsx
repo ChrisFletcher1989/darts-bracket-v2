@@ -42,20 +42,26 @@ function PlayerInputs ({ number }){
       }
       if (seededNames.length>2){
 
-         let interval=100/seededNames.length
+        let interval = 100 / (seededNames.length - 1);         
          let end =100
          for (let i = 0; i < seededNames.length / 2-1; i++) {
           positions.push(Math.floor((totalNames/100) * interval));
-          positions.push(Math.floor((totalNames/100) * (end - interval-1)));
-          interval+=interval 
+          positions.push(Math.floor((totalNames/100) * (end - interval)-1));
+          interval += 100 / (seededNames.length - 1); 
+          console.log("INTERVAL", interval)
+
         }
 for (let i=0; i<totalNames; i++){
   randomNames.push("REPLACE")
 }
+
   for (let j=0; j<seededNames.length; j++){
     randomNames[positions[j]]=seededNames[j];
+    
   }
       }
+      console.log("random names=", randomNames, "seeded names=", seededNames, "positions length=", positions.length, "positions=", positions)
+
     };
 //WHEN "randomize" IS PRESSED//
   const [randomizedNames, setRandomizedNames] = useState([]);

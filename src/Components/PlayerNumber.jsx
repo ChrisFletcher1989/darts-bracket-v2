@@ -20,7 +20,7 @@ const handleNameChange =(event)=> {
             <span className="text-lg text-green-500">Need seeded players?<br/></span>
             To add seeded players, type SEED before their name.<br/>
            What is seeded? Seeded players not face each other until as late in the tournament as possible (and never in round 1).<br />
-           Enter the strongest seed first. Max number of seeds is 9.
+           Enter the strongest seed first. 
           </div>
           <fieldset className="uppercase">
             <div className="dropdown">
