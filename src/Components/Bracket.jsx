@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../App.css';
+import Swal from 'sweetalert2'
+
 
 const BoxType = 'BOX';
 function Bracket({ randomNames, randomClicked }) {
@@ -23,14 +25,34 @@ function Bracket({ randomNames, randomClicked }) {
     let length = randomNames.length;
 
     //MOVE PLAYERS TO NEXT ROUND//
+    let move = (event) => {
+      event.target.textContent = clickedArray[0];
+      clickedArray.pop();
+    };
+    let dontMove = (event) => {
+      clickedArray.pop();
+    };
+    
     const handleBoxClick = (event) => {
-        if (clickedArray.length === 0) {
-          clickedArray.push(event.target.textContent);
-        } else {
-            event.target.textContent = clickedArray[0];
-            clickedArray.pop();
-        }
+      if (clickedArray.length === 0) {
+        clickedArray.push(event.target.textContent);
+      } else {
+        Swal.fire({
+          title: `Move ${clickedArray[0]}`,
+          showDenyButton: true,
+          confirmButtonText: "Move",
+          denyButtonText: `Don't Move`
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire("Moved!", "", "success");
+            move(event);
+          } else if (result.isDenied) {
+            Swal.fire("Not Moved", "", "info");
+            dontMove();
+          }
+        });
       }
+    };
     //CREATE PLAYERS//
     if (length > 0) {
       for (let i = 0; i < length; i++) {
