@@ -48,7 +48,6 @@ function PlayerInputs ({ number }){
           positions.push(Math.floor((totalNames/100) * interval));
           positions.push(Math.floor((totalNames/100) * (end - interval)-1));
           interval += 100 / (seededNames.length - 1); 
-          console.log("INTERVAL", interval)
 
         }
 for (let i=0; i<totalNames; i++){

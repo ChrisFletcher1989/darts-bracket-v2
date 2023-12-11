@@ -12,7 +12,6 @@ function Bracket({ randomNames, randomClicked }) {
   const [showInfo, setShowInfo] = useState(false);
 
   useEffect(() => {
-    console.log("EFFECT", randomNames);
     let updatedPlayerElements = [];
     let clickedArray=[];
     let updatedSecond = [];
@@ -37,7 +36,8 @@ function Bracket({ randomNames, randomClicked }) {
       for (let i = 0; i < length; i++) {
         updatedPlayerElements.push(
           <div key={i} className='box'>
-            <p className='playerLabel1' onClick={handleBoxClick}>{randomNames[i]}</p>
+          <input className="score" id="quantity" name="quantity" placeholder="0" />
+          <p className='playerLabel1' onClick={handleBoxClick}>{randomNames[i]}</p>
           </div>)  
       }
     }
@@ -46,6 +46,7 @@ function Bracket({ randomNames, randomClicked }) {
       for (let i = 1; i <= length; i++) {
         updatedSecond.push(
           <div key={i} className='box'>
+            <input className="score" id="quantity" name="quantity" placeholder="0" />
             <p className='playerLabel' onClick={handleBoxClick}>{`Winner of round 1 G${i}`}</p>
           </div>
         );
@@ -56,7 +57,8 @@ function Bracket({ randomNames, randomClicked }) {
       for (let i = 1; i <= length; i++) {
         updatedThird.push(
           <div key={i} className='box'>
-            <p className='playerLabel' onClick={handleBoxClick}>{`Winner of round 2 G${i}`}</p>
+           <input className="score" id="quantity" name="quantity" placeholder="0" />
+           <p className='playerLabel' onClick={handleBoxClick}>{`Winner of round 2 G${i}`}</p>
           </div>
         );
       }
@@ -66,6 +68,7 @@ function Bracket({ randomNames, randomClicked }) {
       for (let i = 1; i <= length; i++) {
         updatedFourth.push(
           <div key={i} className='box'>
+            <input className="score" id="quantity" name="quantity" placeholder="0" />
             <p className='playerLabel' onClick={handleBoxClick}>{`Winner of round 3 G${i}`}</p>
           </div>
         );
@@ -76,6 +79,7 @@ function Bracket({ randomNames, randomClicked }) {
       for (let i = 1; i <= length; i++) {
         updatedFifth.push(
           <div key={i} className='box'>
+            <input className="score" id="quantity" name="quantity" placeholder="0" />
             <p className='playerLabel' onClick={handleBoxClick}>{`Winner of round 4 G${i}`}</p>
           </div>
         );
@@ -86,6 +90,7 @@ function Bracket({ randomNames, randomClicked }) {
       for (let i = 1; i <= length; i++) {
         updatedSixth.push(
           <div key={i} className='box'>
+            <input className="score" id="quantity" name="quantity" placeholder="0" />
             <p className='playerLabel' onClick={handleBoxClick}>{`Winner of round 5 G${i}`}</p>
           </div>
         );
