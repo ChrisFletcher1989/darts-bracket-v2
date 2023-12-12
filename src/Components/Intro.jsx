@@ -1,15 +1,15 @@
-import React, { useRef, useEffect } from 'react'
-import '../App.css'
+import React, { useRef, useEffect } from "react";
+import "../App.css";
 
-function Intro (){
-    return (
+function Intro() {
+  return (
     <div>
-        <div className="zone black sticky banner">
-    <p>Darts Tournament Bracket Creator  <br /></p>
+      <div className="zone black sticky banner">
+        <p>
+          Darts Tournament Bracket Creator <br />
+        </p>
+      </div>
     </div>
-   
-    </div>
-   
-    )
+  );
 }
-export default Intro
+export default Intro;

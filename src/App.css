@@ -2,203 +2,200 @@
   background-color: black;
   min-width: 100%;
   overflow: auto;
-
 }
 div {
-    font-family: Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
 }
 .newPlayers {
   font-size: 0.4em;
 }
 
 .wrapper {
-    font-size:2em;
-    margin: 0px;
-    display: flex;
-    flex-direction: row;
-    /* justify-content: center;  */
+  font-size: 2em;
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center;  */
 }
 @media (min-width: 555px) {
- .wrapper {
-  justify-content: center; 
-
+  .wrapper {
+    justify-content: center;
   }
 }
 a {
-    color: red;
+  color: red;
 }
 
-.banner{
-    color: #00FF00;
-    text-align: center;
-    margin: 0;
-    padding: 0
-    
+.banner {
+  color: #00ff00;
+  text-align: center;
+  margin: 0;
+  padding: 0;
 }
-.players{
-    margin:0px;
-    margin-bottom:40px;
-    padding-left: 0px;
-    padding-right: 0px;
-    text-align: center;
-    width: 100%;
-    background-color: black;
-    font-size: 2em;
-    color: red;
-    
+.players {
+  margin: 0px;
+  margin-bottom: 40px;
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: center;
+  width: 100%;
+  background-color: black;
+  font-size: 2em;
+  color: red;
 }
 
-
-.playerLabel{
-    font-size: 0.8em;
-    margin-right: 10px;
+.playerLabel {
+  font-size: 0.8em;
+  margin-right: 10px;
 }
-.playerLabel1{
-    font-size: 0.8em;
-    margin-right: 10px;
-
+.playerLabel1 {
+  font-size: 0.8em;
+  margin-right: 10px;
 }
 .randomise {
   height: 40px;
   width: 100px;
   margin: 10px;
-    border-radius: 20px;
-    background-color: #abedcd;
-    font-size: 0.5em;
-    
-
+  border-radius: 20px;
+  background-color: #abedcd;
+  font-size: 0.5em;
 }
 .randomise:hover {
-    background-color: #4668ff;
-
+  background-color: #4668ff;
 }
 .first {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 100px;
-
-
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 100px;
 }
 .round {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    margin-bottom: 100px;
-
-
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin-bottom: 100px;
 }
-.playerNames{
+.playerNames {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
-    .wrapper, .box, .playerName {
-        color: red;
-        font-size: 0.51em;
-    }
-    .wrapper, .box2, .playerName {
-        color: red ;
-        font-size: 0.51em;
-    }
-    @media (max-width: 555px){ .wrapper, .box, .playerName {
-        color: red ;
-        font-size: 0.45em
-    }
+.wrapper,
+.box,
+.playerName {
+  color: red;
+  font-size: 0.51em;
+}
+.wrapper,
+.box2,
+.playerName {
+  color: red;
+  font-size: 0.51em;
+}
+@media (max-width: 555px) {
+  .wrapper,
+  .box,
+  .playerName {
+    color: red;
+    font-size: 0.45em;
+  }
 }
 
 .box {
-    background: linear-gradient(#309F6A 0%, white 20%, white 80%,#309F6A 100%);
-    padding:6px;
-    height: 40px;
-    width: 170px;
-    margin: 8px;
-    border-radius: 40px;
-    border-bottom-right-radius:0px;
-    margin-bottom: 0px;
-    display:flex;
-
+  background: linear-gradient(#309f6a 0%, white 20%, white 80%, #309f6a 100%);
+  padding: 6px;
+  height: 40px;
+  width: 170px;
+  margin: 8px;
+  border-radius: 40px;
+  border-bottom-right-radius: 0px;
+  margin-bottom: 0px;
+  display: flex;
 }
 .box:nth-child(even) {
-    background: linear-gradient(#E3292E 0%, black 20%, black 80%, #E3292E 100%);
-    padding:6px;
-    height: 40px;
-    width: 170px;
-    margin: 8px;
-    border-radius: 40px;
-    border-top-right-radius:0px;
-    margin-top: 0px;
-
+  background: linear-gradient(#e3292e 0%, black 20%, black 80%, #e3292e 100%);
+  padding: 6px;
+  height: 40px;
+  width: 170px;
+  margin: 8px;
+  border-radius: 40px;
+  border-top-right-radius: 0px;
+  margin-top: 0px;
 }
 .sticky {
-    position:fixed;
-    width:100%;
+  position: fixed;
+  width: 100%;
 }
 .zone {
-    
-    font-size:2em;
-    border:1px solid #bbb;
-    transition: all 0.3s linear;
+  font-size: 2em;
+  border: 1px solid #bbb;
+  transition: all 0.3s linear;
 }
 
 .zone:hover {
-    -webkit-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
-    -moz-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
-    -o-box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
-    box-shadow:rgba(0,0,0,0.8) 0px 5px 15px, inset rgba(0,0,0,0.15) 0px -10px 20px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
+    inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
 }
 .score {
-    width: 15px;
-    margin-right: 5px;
+  width: 15px;
+  margin-right: 5px;
 }
 .box:nth-child(even) .score {
-    background-color: black;
+  background-color: black;
 }
-.black{
-    background: black;
+.black {
+  background: black;
 }
 .gray {
-    background: gray;
+  background: gray;
 }
 /* Dropdown Button */
 .dropbtn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 19px;
-    font-size: 16px;
-    border: none;
-  }
-  
-  .dropdown {
-    display: block;
-    margin: 16px;
-    margin-top: 0px;
-    padding: 16px;
-
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-    display: none;
-    background-color: #f1f1f1;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    margin:0px
-  }
-  .option {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: inline-block;
-  }
-  
-  .dropdown:hover .dropdown-content {display: inline-block;
-    color: black;
-    padding: 0px 0px;
-    text-decoration: none;
-margin: 0px, 0px;
+  background-color: #04aa6d;
+  color: white;
+  padding: 19px;
+  font-size: 16px;
+  border: none;
 }
-  
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.dropdown {
+  display: block;
+  margin: 16px;
+  margin-top: 0px;
+  padding: 16px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin: 0px;
+}
+.option {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: inline-block;
+  color: black;
+  padding: 0px 0px;
+  text-decoration: none;
+  margin: 0px, 0px;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
