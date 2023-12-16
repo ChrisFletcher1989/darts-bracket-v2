@@ -5,6 +5,7 @@ import "../App";
 import Bracket from "./Bracket";
 let randomNames = [];
 let seededNames = [];
+
 function PlayerInputs({ number }) {
   let playerNames = [];
   let names = [];
@@ -12,6 +13,8 @@ function PlayerInputs({ number }) {
   let i = 0;
   let [randomClicked, setRandomClicked] = useState(false);
   const [competitor, setCompetitor] = useState();
+  const [savedGame, setSavedGame] = useState([]);
+  let [passcode, setPasscode] = useState();
 
   //WHEN USER TYPES//
   const handleCompetitor = (event) => {
@@ -109,29 +112,62 @@ function PlayerInputs({ number }) {
       />
     );
   }
+  //Input box for id and passcode
+  let handleLoadClick = () => {
+    fetch("", {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        passcode: passcode,
+      }),
+    });
+  };
+  savedGame.push(
+    <form className="w-full max-w-sm">
+      <div className="flex border-b border-teal-500 py-2">
+        <input
+          className="text-base appearance-none bg-transparent border-none w-full text-blue-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+          type="text"
+          placeholder="Have a Passcode?"
+          aria-label="passcode"
+          onChange={() => setPasscode(target.input)}
+        />
+        <button
+          className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
+          type="button"
+          onClick={handleLoadClick}
+        >
+          Load Game
+        </button>
+      </div>
+    </form>
+  );
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center">
+      {savedGame}
       <fieldset className="playerNames" id="playerNames">
         {playerNames}
         <br />
       </fieldset>
-      <button
-        id="randomise px-2"
-        className="randomise"
-        onClick={handleRandomize}
-      >
-        Randomise
-      </button>
-      <button
-        id="generatePDF"
-        className="randomise"
-        onClick={function printFunction() {
-          window.print();
-        }}
-      >
-        Print PDF
-      </button>
+      <div className="flex">
+        <button
+          id="randomise px-2"
+          className="randomise"
+          onClick={handleRandomize}
+        >
+          Randomise
+        </button>
+        <button
+          id="generatePDF"
+          className="randomise"
+          onClick={function printFunction() {
+            window.print();
+          }}
+        >
+          Print PDF
+        </button>
+      </div>
       <div className="players"></div>
       <Bracket randomNames={randomNames} randomClicked={randomClicked} />{" "}
     </div>

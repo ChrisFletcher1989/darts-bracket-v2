@@ -30,8 +30,8 @@ function PlayerNumber() {
         </span>
         To add seeded players, type SEED before their name.
         <br />
-        What is seeded? Seeded players not face each other until as late in the
-        tournament as possible (and never in round 1).
+        What is seeded? Seeded players do not face each other until as late in
+        the tournament as possible (and never in round 1).
         <br />
         Enter the strongest seed first.
       </div>
