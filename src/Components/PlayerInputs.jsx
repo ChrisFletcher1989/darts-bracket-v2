@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import PlayerNumber from "./PlayerNumber";
 import "../App.css";
-import "../App";
 import Bracket from "./Bracket";
+
 let randomNames = [];
 let seededNames = [];
 
@@ -10,33 +10,42 @@ function PlayerInputs({ number }) {
   let playerNames = [];
   let names = [];
   let a = "";
-  let i = 0;
+  let id = "";
+  let passcode = "";
   let [randomClicked, setRandomClicked] = useState(false);
-  const [competitor, setCompetitor] = useState();
   const [savedGame, setSavedGame] = useState([]);
-  let [passcode, setPasscode] = useState();
+  const [response, setResponse] = useState(null);
 
-  //WHEN USER TYPES//
+  useEffect(() => {
+    console.log("Passcode changed:", passcode);
+  }, [passcode]);
+
+  useEffect(() => {
+    console.log("ID changed:", id);
+  }, [id]);
+
   const handleCompetitor = (event) => {
     a = event.target.value;
   };
-  //ADD TO ARRAY WHEN USER FINISHES TYPING
+
   const handleKeyPress = (event) => {
     if (event.key === "Enter" || event.key === "Tab") {
       handleCompetitorClick();
     }
   };
+
   const handleCompetitorClick = () => {
     if (a.toLowerCase().includes("seed")) {
       seededNames.push(a);
-    } else if (a != "" && a != names[names.length - 1]) {
+    } else if (a !== "" && a !== names[names.length - 1]) {
       names.push(a);
     }
   };
-  let seeds = (seededNames, names) => {
+
+  const seeds = (seededNames, names) => {
     let totalNames = names.length + seededNames.length;
     let positions = [0, totalNames - 1];
-    if (seededNames.length == 2) {
+    if (seededNames.length === 2) {
       for (let i = 0; i < totalNames; i++) {
         randomNames.push("REPLACE");
       }
@@ -70,14 +79,12 @@ function PlayerInputs({ number }) {
       positions
     );
   };
-  //WHEN "randomize" IS PRESSED//
-  const [randomizedNames, setRandomizedNames] = useState([]);
-  const [randomize, setRandomize] = useState([]);
+
   const handleRandomize = () => {
-    if (a != "" && a != names[names.length - 1]) {
+    if (a !== "" && a !== names[names.length - 1]) {
       names.push(a);
     }
-    if (seededNames.length != 0) {
+    if (seededNames.length !== 0) {
       seeds(seededNames, names);
     }
     while (names.length > 0) {
@@ -112,25 +119,61 @@ function PlayerInputs({ number }) {
       />
     );
   }
-  //Input box for id and passcode
-  let handleLoadClick = () => {
-    fetch("", {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+
+  const handleLoadClick = async () => {
+    try {
+      console.log("Before setPasscode - passcode:", passcode, "id:", id);
+
+      const requestData = {
         passcode: passcode,
-      }),
-    });
+        id: id,
+      };
+
+      console.log("Request Data:", requestData);
+
+      const response = await fetch(
+        "https://ya6aaaok58.execute-api.ap-northeast-1.amazonaws.com/loadBracket",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        }
+      );
+
+      const responseData = await response.json();
+      setResponse(responseData);
+      console.log("After fetch - response:", responseData);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
+
   savedGame.push(
     <form className="w-full max-w-sm">
       <div className="flex border-b border-teal-500 py-2">
         <input
           className="text-base appearance-none bg-transparent border-none w-full text-blue-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
           type="text"
-          placeholder="Have a Passcode?"
+          id="id"
+          key="passcode"
+          placeholder="ID (load game)"
+          aria-label="id"
+          onChange={(event) => {
+            id = event.target.value;
+          }}
+        />
+        <input
+          className="text-base appearance-none bg-transparent border-none w-full text-blue-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+          type="text"
+          id="passcode"
+          key="passcode"
+          placeholder="Passcode?"
           aria-label="passcode"
-          onChange={() => setPasscode(target.input)}
+          onChange={(event) => {
+            passcode = event.target.value;
+          }}
         />
         <button
           className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded"
@@ -169,8 +212,13 @@ function PlayerInputs({ number }) {
         </button>
       </div>
       <div className="players"></div>
-      <Bracket randomNames={randomNames} randomClicked={randomClicked} />{" "}
+      <Bracket
+        response={response}
+        randomNames={randomNames}
+        randomClicked={randomClicked}
+      />{" "}
     </div>
   );
 }
+
 export default PlayerInputs;

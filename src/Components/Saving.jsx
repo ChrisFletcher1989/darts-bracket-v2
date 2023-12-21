@@ -15,9 +15,9 @@ function Saving({
   fifthScores,
   sixthScores,
 }) {
-  let [email, setEmail] = useState();
-
+  let email = "";
   let [passcode, setPasscode] = useState();
+  let [id, setId] = useState();
   let [password, setPassword] = useState();
   let [saveForm, setSaveForm] = useState([]);
   const [buttonClicked, setButtonClicked] = useState(false);
@@ -42,6 +42,22 @@ function Saving({
               type="email"
               placeholder="Please enter email address"
               onChange={(event) => handleEmailChange(event)}
+            />
+          </div>
+          <div className="mb-6">
+            <label
+              className="block text-red-700 text-sm font-bold mb-2"
+              htmlFor="inputPasscode"
+            >
+              Create an ID (needed by others to view)
+            </label>
+            <input
+              className="text-base shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="inputId"
+              name="id"
+              type="string"
+              placeholder="Enter an ID (to share)"
+              onChange={(event) => handleIdChange(event)}
             />
           </div>
           <div className="mb-6">
@@ -78,11 +94,16 @@ function Saving({
           </div>
           <div>
             <button
-              type="submit"
               className="text-base bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               onClick={handleSaveTournament}
             >
-              Save/Add tournament
+              Save existing tournament
+            </button>
+            <button
+              className="text-base bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={handleSaveNewTournament}
+            >
+              Add tournament
             </button>
           </div>
         </form>
@@ -91,46 +112,122 @@ function Saving({
   };
 
   let handleEmailChange = (event) => {
-    setEmail(event.target.value);
+    email = event.target.value;
+  };
+  let handleIdChange = (event) => {
+    id = event.target.value;
   };
 
   let handlePasscodeChange = (event) => {
-    setPasscode(event.target.value);
+    passcode = event.target.value;
   };
 
   let handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+    password = event.target.value;
   };
 
   let handleSaveTournament = () => {
+    console.log("third players before send", third);
+    event.preventDefault();
     if (password.length > 5) {
-      fetch("", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: email,
-          passcode: passcode,
-          password: password,
-          firstPlayers: firstPlayers,
-          secondPlayers: secondPlayers,
-          thirdPlayers: thirdPlayers,
-          fourthPlayers: fourthPlayers,
-          fifthPlayers: fifthPlayers,
-          sixthPlayers: sixthPlayers,
-          firstScores: firstScores,
-          secondScores: secondScores,
-          thirdScores: thirdScores,
-          fourthScores: fourthScores,
-          fifthScores: fifthScores,
-          sixthScores: sixthScores,
-        }),
-      })
-        .then((response) => response.json())
-        .then(() => {
+      fetch(
+        "https://ya6aaaok58.execute-api.ap-northeast-1.amazonaws.com/saveBracket",
+        {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: email,
+            passcode: passcode,
+            password: password,
+            id: id,
+            firstPlayers: firstPlayers,
+            secondPlayers: secondPlayers,
+            thirdPlayers: thirdPlayers,
+            fourthPlayers: fourthPlayers,
+            fifthPlayers: fifthPlayers,
+            sixthPlayers: sixthPlayers,
+            firstScores: firstScores,
+            secondScores: secondScores,
+            thirdScores: thirdScores,
+            fourthScores: fourthScores,
+            fifthScores: fifthScores,
+            sixthScores: sixthScores,
+          }),
+        }
+      )
+        .then((response) => {
+          if (!response.ok) {
+            // Check for error status and throw an error
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .then((responseData) => {
           setSaveForm([
             ...saveForm,
             <div key={saveForm.length}>
-              <p>Saved Successfully</p>
+              <p>{JSON.stringify(responseData)}</p>
+            </div>,
+          ]);
+        })
+        .catch((error) => {
+          setSaveForm([
+            ...saveForm,
+            <div key={saveForm.length}>
+              <p>Error: {error.message}</p>
+            </div>,
+          ]);
+        });
+    }
+  };
+  let handleSaveNewTournament = () => {
+    event.preventDefault();
+    if (password.length > 5) {
+      fetch(
+        "https://ya6aaaok58.execute-api.ap-northeast-1.amazonaws.com/addBracket",
+        {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: email,
+            passcode: passcode,
+            password: password,
+            id: id,
+            firstPlayers: firstPlayers,
+            secondPlayers: secondPlayers,
+            thirdPlayers: thirdPlayers,
+            fourthPlayers: fourthPlayers,
+            fifthPlayers: fifthPlayers,
+            sixthPlayers: sixthPlayers,
+            firstScores: firstScores,
+            secondScores: secondScores,
+            thirdScores: thirdScores,
+            fourthScores: fourthScores,
+            fifthScores: fifthScores,
+            sixthScores: sixthScores,
+          }),
+        }
+      )
+        .then((response) => {
+          if (!response.ok) {
+            // Check for error status and throw an error
+            throw new Error(response.statusText);
+          }
+          return response.json();
+        })
+        .then((responseData) => {
+          setSaveForm([
+            ...saveForm,
+            <div key={saveForm.length}>
+              <p>{JSON.stringify(responseData)}</p>
+            </div>,
+          ]);
+        })
+        .catch((error) => {
+          setSaveForm([
+            ...saveForm,
+            <div key={saveForm.length}>
+              <p>Error: {error.message}</p>
             </div>,
           ]);
         });

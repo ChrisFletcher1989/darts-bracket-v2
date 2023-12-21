@@ -4,7 +4,7 @@ import "../App.css";
 import Swal from "sweetalert2";
 
 const BoxType = "BOX";
-function Bracket({ randomNames, randomClicked }) {
+function Bracket({ randomNames, randomClicked, response }) {
   const [playerElements, setPlayerElements] = useState([]);
   const [second, setSecond] = useState([]);
   const [third, setThird] = useState([]);
@@ -13,18 +13,18 @@ function Bracket({ randomNames, randomClicked }) {
   const [sixth, setSixth] = useState([]);
   const [showInfo, setShowInfo] = useState(false);
 
-  let [firstPlayers] = useState([]);
-  let [firstScores] = useState([]);
-  let [secondPlayers] = useState([]);
-  let [secondScores] = useState([]);
-  let [thirdPlayers] = useState([]);
-  let [thirdScores] = useState([]);
-  let [fourthPlayers] = useState([]);
-  let [fourthScores] = useState([]);
-  let [fifthPlayers] = useState([]);
-  let [fifthScores] = useState([]);
-  let [sixthPlayers] = useState([]);
-  let [sixthScores] = useState([]);
+  let [firstPlayers, setFirstPlayers] = useState([]);
+  let [firstScores, setFirstScores] = useState([]);
+  let [secondPlayers, setSecondPlayers] = useState([]);
+  let [secondScores, setSecondScores] = useState([]);
+  let [thirdPlayers, setThirdPlayers] = useState([]);
+  let [thirdScores, setThirdScores] = useState([]);
+  let [fourthPlayers, setFourthPlayers] = useState([]);
+  let [fourthScores, setFourthScores] = useState([]);
+  let [fifthPlayers, setFifthPlayers] = useState([]);
+  let [fifthScores, setFifthScores] = useState([]);
+  let [sixthPlayers, setSixthPlayers] = useState([]);
+  let [sixthScores, setSixthScores] = useState([]);
 
   useEffect(() => {
     let updatedPlayerElements = [];
@@ -44,15 +44,35 @@ function Bracket({ randomNames, randomClicked }) {
       clickedArray.pop();
       i = Math.floor(i / 2);
       if (id === "secondPlayers") {
-        secondPlayers[i] = event.target.textContent;
+        setThirdPlayers((prevSecondPlayers) => {
+          const updatedSecondPlayers = [...prevSecondPlayers];
+          updatedSecondPlayers[i] = event.target.textContent;
+          return updatedSecondPlayers;
+        });
       } else if ((id = "thirdPlayers")) {
-        thirdPlayers[i] = event.target.textContent;
+        setThirdPlayers((prevThirdPlayers) => {
+          const updatedThirdPlayers = [...prevThirdPlayers];
+          updatedThirdPlayers[i] = event.target.textContent;
+          return updatedThirdPlayers;
+        });
       } else if ((id = "fourthPlayers")) {
-        fourthPlayers[i] = event.target.textContent;
+        setFourthPlayers((prevFourthPlayers) => {
+          const updatedFourthPlayers = [...prevFourthPlayers];
+          updatedFourthPlayers[i] = event.target.textContent;
+          return updatedFourthPlayers;
+        });
       } else if ((id = "fifthPlayers")) {
-        fifthPlayers[i] = event.target.textContent;
+        setThirdPlayers((prevFifthPlayers) => {
+          const updatedFifthPlayers = [...prevFifthPlayers];
+          updatedFifthPlayers[i] = event.target.textContent;
+          return updatedFifthPlayers;
+        });
       } else if ((id = "sixthPlayers")) {
-        sixthPlayers[i] = event.target.textContent;
+        setThirdPlayers((prevSixthPlayers) => {
+          const updatedSixthPlayers = [...prevSixthPlayers];
+          updatedSixthPlayers[i] = event.target.textContent;
+          return updatedSixthPlayers;
+        });
       }
     };
     let dontMove = (event) => {
@@ -80,7 +100,20 @@ function Bracket({ randomNames, randomClicked }) {
       }
     };
     //CREATE PLAYERS IF LOADED//
-    if (firstPlayers !== null && firstScores !== null) {
+    if (response !== null) {
+      setFirstPlayers(response.firstPlayers);
+      if (response.secondPlayers) setSecondPlayers(response.secondPlayers);
+      if (response.thirdPlayers) setThirdPlayers(response.thirdPlayers);
+      if (response.fourthPlayers) setFourthPlayers(response.fourthPlayers);
+      if (response.fifthPlayers) setFifthPlayers(response.fifthPlayers);
+      if (response.sixthPlayers) setSixthPlayers(response.sixthPlayers);
+      if (response.firstScores) setFirstScores(response.firstScores);
+      if (response.secondScores) setSecondScores(response.secondScores);
+      if (response.thirdScores) setThirdScores(response.thirdScores);
+      if (response.fifthScores) setFourthScores(response.fourthScores);
+      if (response.sixthScores) setFifthScores(response.fifthScores);
+      if (response.sixthScores) setSixthScores(response.sixthScores);
+
       for (let i = 0; i < firstPlayers.length; i++) {
         updatedPlayerElements.push(
           <div key={i} className="box">
@@ -90,7 +123,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder={firstScores[i]}
               onChange={(event) => {
-                firstScores[i] = event.target.value;
+                setFirstScores((prevFirstScores) => {
+                  const updatedFirstScores = [...prevFirstScores];
+                  updatedFirstScores[i] = event.target.value;
+                  return updatedFirstScores;
+                });
               }}
             />
             <p
@@ -111,7 +148,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder={secondScores[i]}
               onChange={(event) => {
-                secondScores[i] = event.target.value;
+                setSecondScores((prevSecondScores) => {
+                  const updatedSecondScores = [...prevSecondScores];
+                  updatedSecondScores[i] = event.target.value;
+                  return updatedSecondScores;
+                });
               }}
             />
             <p
@@ -132,7 +173,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder={thirdScores[i]}
               onChange={(event) => {
-                thirdScores[i] = event.target.value;
+                setThirdScores((prevThirdScores) => {
+                  const updatedThirdScores = [...prevThirdScores];
+                  updatedThirdScores[i] = event.target.value;
+                  return updatedThirdScores;
+                });
               }}
             />
             <p
@@ -153,7 +198,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder={fourthScores[i]}
               onChange={(event) => {
-                fourthScores[i] = event.target.value;
+                setFourthScores((prevFourthScores) => {
+                  const updatedFourthScores = [...prevFourthScores];
+                  updatedFourthScores[i] = event.target.value;
+                  return updatedFourthScores;
+                });
               }}
             />
             <p
@@ -174,7 +223,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder={fifthScores[i]}
               onChange={(event) => {
-                fifthScores[i] = event.target.value;
+                setFirstScores((prevFifthScores) => {
+                  const updatedFifthScores = [...prevFifthScores];
+                  updatedFifthScores[i] = event.target.value;
+                  return updatedFifthScores;
+                });
               }}
             />
             <p
@@ -195,7 +248,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder={sixthScores[i]}
               onChange={(event) => {
-                sixthScores[i] = event.target.value;
+                setFirstScores((prevSixthScores) => {
+                  const updatedSixthScores = [...prevSixthScores];
+                  updatedSixthScores[i] = event.target.value;
+                  return updatedSixthScores;
+                });
               }}
             />
             <p
@@ -221,7 +278,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder="0"
               onChange={(event) => {
-                firstScores[i] = event.target.value;
+                setFirstScores((prevFirstScores) => {
+                  const updatedFirstScores = [...prevFirstScores];
+                  updatedFirstScores[i] = event.target.value;
+                  return updatedFirstScores;
+                });
               }}
             />
             <p
@@ -247,13 +308,17 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder="0"
               onChange={(event) => {
-                secondScores[i - 1] = event.target.value;
+                setSecondScores((prevSecondScores) => {
+                  const updatedSecondScores = [...prevSecondScores];
+                  updatedSecondScores[i - 1] = event.target.value;
+                  return updatedSecondScores;
+                });
               }}
             />
             <p
               className="playerLabel"
               onClick={(event) => handleBoxClick(event, "secondPlayers", i)}
-            >{`Winner of round 1 G${i}`}</p>
+            >{`Winner of round 1 G${i - 1}`}</p>
           </div>
         );
       }
@@ -271,7 +336,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder="0"
               onChange={(event) => {
-                thirdScores[i - 1] = event.target.value;
+                setThirdScores((prevThirdScores) => {
+                  const updatedThirdScores = [...prevThirdScores];
+                  updatedThirdScores[i - 1] = event.target.value;
+                  return updatedThirdScores;
+                });
               }}
             />
 
@@ -297,7 +366,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder="0"
               onChange={(event) => {
-                fourthScores[i - 1] = event.target.value;
+                setFourthScores((prevFourthScores) => {
+                  const updatedFourthScores = [...prevFourthScores];
+                  updatedFourthScores[i - 1] = event.target.value;
+                  return updatedFourthScores;
+                });
               }}
             />
 
@@ -322,7 +395,11 @@ function Bracket({ randomNames, randomClicked }) {
               name="quantity"
               placeholder="0"
               onChange={(event) => {
-                fifthScores[i - 1] = event.target.value;
+                setFifthScores((prevFifthScores) => {
+                  const updatedFifthScores = [...prevFifthScores];
+                  updatedFifthScores[i - 1] = event.target.value;
+                  return updatedFifthScores;
+                });
               }}
             />
 
@@ -358,7 +435,7 @@ function Bracket({ randomNames, randomClicked }) {
     if (randomClicked) {
       setShowInfo(true);
     }
-  }, [randomNames, randomClicked]);
+  }, [randomNames, randomClicked, response]);
 
   //THE HTML//
   return (
