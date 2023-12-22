@@ -62,13 +62,13 @@ function Bracket({ randomNames, randomClicked, response }) {
           return updatedFourthPlayers;
         });
       } else if ((id = "fifthPlayers")) {
-        setThirdPlayers((prevFifthPlayers) => {
+        setFifthPlayers((prevFifthPlayers) => {
           const updatedFifthPlayers = [...prevFifthPlayers];
           updatedFifthPlayers[i] = event.target.textContent;
           return updatedFifthPlayers;
         });
       } else if ((id = "sixthPlayers")) {
-        setThirdPlayers((prevSixthPlayers) => {
+        setSixthPlayers((prevSixthPlayers) => {
           const updatedSixthPlayers = [...prevSixthPlayers];
           updatedSixthPlayers[i] = event.target.textContent;
           return updatedSixthPlayers;
