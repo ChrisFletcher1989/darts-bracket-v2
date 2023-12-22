@@ -44,7 +44,7 @@ function Bracket({ randomNames, randomClicked, response }) {
       clickedArray.pop();
       i = Math.floor(i / 2);
       if (id === "secondPlayers") {
-        setThirdPlayers((prevSecondPlayers) => {
+        setSecondPlayers((prevSecondPlayers) => {
           const updatedSecondPlayers = [...prevSecondPlayers];
           updatedSecondPlayers[i] = event.target.textContent;
           return updatedSecondPlayers;
@@ -139,7 +139,7 @@ function Bracket({ randomNames, randomClicked, response }) {
           </div>
         );
       }
-      for (let i = 0; i <= secondPlayers.length - 1; i++) {
+      for (let i = 1; i <= secondPlayers.length - 1; i++) {
         updatedSecond.push(
           <div key={i} className="box">
             <input
