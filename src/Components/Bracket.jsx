@@ -139,7 +139,7 @@ function Bracket({ randomNames, randomClicked, response }) {
           </div>
         );
       }
-      for (let i = 1; i <= secondPlayers.length - 1; i++) {
+      for (let i = 1; i <= secondPlayers.length; i++) {
         updatedSecond.push(
           <div key={i} className="box">
             <input
@@ -164,7 +164,7 @@ function Bracket({ randomNames, randomClicked, response }) {
           </div>
         );
       }
-      for (let i = 0; i <= thirdPlayers.length - 1; i++) {
+      for (let i = 0; i <= thirdPlayers.length; i++) {
         updatedThird.push(
           <div key={i} className="box">
             <input
@@ -189,7 +189,7 @@ function Bracket({ randomNames, randomClicked, response }) {
           </div>
         );
       }
-      for (let i = 0; i <= fourthPlayers.length - 1; i++) {
+      for (let i = 0; i <= fourthPlayers.length; i++) {
         updatedFourth.push(
           <div key={i} className="box">
             <input
@@ -214,7 +214,7 @@ function Bracket({ randomNames, randomClicked, response }) {
           </div>
         );
       }
-      for (let i = 0; i <= fifthPlayers.length - 1; i++) {
+      for (let i = 0; i <= fifthPlayers.length; i++) {
         updatedFifth.push(
           <div key={i} className="box">
             <input
@@ -239,7 +239,7 @@ function Bracket({ randomNames, randomClicked, response }) {
           </div>
         );
       }
-      for (let i = 0; i <= sixthPlayers.length - 1; i++) {
+      for (let i = 0; i <= sixthPlayers.length; i++) {
         updatedSixth.push(
           <div key={i} className="box">
             <input
