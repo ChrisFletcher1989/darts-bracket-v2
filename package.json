@@ -11,10 +11,12 @@
     "go": "vite"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
     "react": "^18.2.0",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
+    "react-redux": "^9.0.4",
     "sweetalert2": "^11.10.1"
   },
   "devDependencies": {
