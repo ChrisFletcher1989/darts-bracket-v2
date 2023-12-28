@@ -318,7 +318,7 @@ function Bracket({ randomNames, randomClicked, response }) {
             <p
               className="playerLabel"
               onClick={(event) => handleBoxClick(event, "secondPlayers", i)}
-            >{`Winner of round 1 G${i - 1}`}</p>
+            >{`Winner of round 1 G${i}`}</p>
           </div>
         );
       }
