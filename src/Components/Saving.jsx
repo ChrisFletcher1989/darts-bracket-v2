@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import store from "../redux/store";
 import "../App.css";
 import buttonClickedReducer, {
   clicked,
 } from "../redux/saveClicked/saveClicked";
+import { useDispatch, useSelector } from "react-redux";
 
 function Saving({
   firstPlayers,
@@ -19,9 +19,8 @@ function Saving({
   fifthScores,
   sixthScores,
 }) {
-  const unsubscribe = store.subscribe(() => {
-    console.log("Updated State", store.getState());
-  });
+  const dispatch = useDispatch();
+
   let email = "";
   let [passcode, setPasscode] = useState();
   let [id, setId] = useState();
@@ -29,7 +28,8 @@ function Saving({
   let [saveForm, setSaveForm] = useState([]);
 
   let handleSaveClick = () => {
-    store.dispatch(clicked());
+    dispatch(clicked());
+
     setSaveForm([
       ...saveForm,
       <div key={saveForm.length} className="w-full max-w-xs mx-auto mt-3">
