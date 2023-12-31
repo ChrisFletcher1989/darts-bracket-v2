@@ -7,7 +7,7 @@ const buttonClickedSlice = createSlice({
   name: "buttonClicked",
   initialState: initialState,
   reducers: {
-    clicked: (state, action) => {
+    clicked: (state) => {
       state.buttonClicked = true;
     },
   },
