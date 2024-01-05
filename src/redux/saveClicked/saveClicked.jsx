@@ -13,5 +13,4 @@ const buttonClickedSlice = createSlice({
   },
 });
 export const { clicked } = buttonClickedSlice.actions;
-
 export default buttonClickedSlice.reducer;
