@@ -469,7 +469,8 @@ function Bracket({ randomNames, randomClicked, response }) {
         </div>
       </div>
       <div>
-        <Saving
+        {/*REMOVED TEMPORARILY TO SAVE SERVER COSTS
+        {/* <Saving
           firstPlayers={firstPlayers}
           secondPlayers={secondPlayers}
           thirdPlayers={thirdPlayers}
@@ -482,7 +483,7 @@ function Bracket({ randomNames, randomClicked, response }) {
           fourthScores={fourthScores}
           fifthScores={fifthScores}
           sixthScores={sixthScores}
-        />
+        /> */}
       </div>
     </div>
   );

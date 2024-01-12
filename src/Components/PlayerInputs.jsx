@@ -188,7 +188,8 @@ function PlayerInputs({ number }) {
 
   return (
     <div className="flex flex-col items-center justify-center">
-      {savedGame}
+      {/*TEMPORARILY REMOVED TO SAVE SERVER COSTS}
+      {/* {savedGame} */}
       <fieldset className="playerNames" id="playerNames">
         {playerNames}
         <br />
