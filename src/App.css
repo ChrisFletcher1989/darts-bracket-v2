@@ -2,7 +2,10 @@
   background-color: black;
   min-width: 100%;
   overflow: auto;
+  min-height: 100vh;
+  margin: 0;
 }
+
 div {
   font-family: Helvetica, sans-serif;
 }
